@@ -11,11 +11,15 @@ const DB = process.env.DATABASE.replace(
 );
 
 // imistvisaa ro ereorebi ar gamoiwvios rame
-mongoose.connect(DB, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-});
+mongoose
+  .connect(DB, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .then(() => {
+    console.log('db Connections successfully');
+  });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
